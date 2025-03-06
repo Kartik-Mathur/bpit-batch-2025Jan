@@ -17,12 +17,12 @@ int main() {
 		// there is no point
 		if (weCanGenerateTill >= nextNumberNeeded) nextNumberNeeded = weCanGenerateTill + 1;
 		else {
-			// Patching hogi
+			// Patching nhi hogi
 			if (i < a_size and nextNumberNeeded >= a[i]) {
 				weCanGenerateTill += a[i];
 				i++;
 			}
-			else { // Patching nhi hogi
+			else { // Patching hogi
 				patchingCount ++;
 				weCanGenerateTill += nextNumberNeeded;
 			}
