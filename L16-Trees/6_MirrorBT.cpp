@@ -25,6 +25,14 @@ node* buildTree() {
 	return root;
 }
 
+void mirror(node* root) {
+	if (!root) return;
+
+	swap(root->left, root->right);
+	mirror(root->left); // LST ka kaam recursion ko boldo
+	mirror(root->right); // RST ka kaam recursion ko boldo
+}
+
 void preOrder(node* root) {
 	if (!root) return;
 
@@ -32,7 +40,6 @@ void preOrder(node* root) {
 	preOrder(root->left);
 	preOrder(root->right);
 }
-
 
 void inorder(node* root) {
 	if (!root) return;
@@ -43,25 +50,14 @@ void inorder(node* root) {
 }
 
 
-void postOrder(node* root) {
-	if (!root) return;
-
-	postOrder(root->left);
-	postOrder(root->right);
-	cout << root->data << " ";
-}
-
-
 int main() {
 
 	node* root = buildTree();
+	mirror(root);
 	preOrder(root);
 	cout << endl;
 	inorder(root);
 	cout << endl;
-	postOrder(root);
-	cout << endl;
-
 
 	return 0;
 }
