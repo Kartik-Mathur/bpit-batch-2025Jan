@@ -74,6 +74,8 @@ public:
 	}
 
 	void insert(string key, int value) {
+		if (search(key) != NULL) return;
+
 		node* n = new node(key, value);
 		int i = hashIndex(key);
 
@@ -102,6 +104,33 @@ public:
 		}
 	}
 
+	node* search(string key) {
+		int indx = hashIndex(key);
+
+		node* t = h[indx];
+
+		while (t) {
+			if (t->key == key) return t;
+
+			t = t->next;
+		}
+
+		return NULL;
+	}
+
+
+	int& operator[](string key) {
+		node* ans = search(key);
+
+		if (ans == NULL) {
+			insert(key, -1); // Value abhi kuch bhi daal do
+		}
+
+		ans = search(key); //ab 100% key present hogi
+
+		return ans -> data;
+	}
+
 };
 
 int main() {
@@ -115,8 +144,19 @@ int main() {
 	h.insert("Guava", 70);
 	h.insert("Orange", 70);
 
-	h.print();
 
+	node* ans = h.search("Orange");
+	if (ans) cout << ans->key << ", " << ans->data << endl;
+	else cout << "Key Not found\n";
+
+	h["Pineapple"] = 100; // Upar se Pineapple ki data bucket by reference aaegi
+
+	h["Pineapple"] = 120; // Upar se Pineapple ki data bucket by reference aaegi
+
+	cout << h["Pineapple"] << endl;
+
+
+	h.print();
 
 
 	return 0;
