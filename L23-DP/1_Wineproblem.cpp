@@ -61,7 +61,7 @@ int diagnoalWine(int *prices, int n) {
 
 	}
 	return dp[0][n - 1];
-}
+}`
 
 int main() {
 
