@@ -29,7 +29,7 @@ int main() {
 	vector< vector<bool > > visited(n + 1, vector<bool>(n + 1, false));
 
 	q.push({0, si, sj});
-	// visited[si][sj] = true;
+	visited[si][sj] = true;
 
 	while (!q.empty()) {
 		auto f = q.front();
@@ -38,7 +38,6 @@ int main() {
 		int cc = f.cost;
 		int ci = f.i;
 		int cj = f.j;
-		visited[ci][cj] = true;
 
 		if (ci == ei and cj == ej) {
 			cout << cc << endl;
@@ -52,7 +51,7 @@ int main() {
 
 			if (isValid(ni, nj) and visited[ni][nj] == false) {
 				q.push({cc + 1, ni, nj});
-				// visited[ni][nj] = true;
+				visited[ni][nj] = true;
 			}
 		}
 	}
