@@ -1,0 +1,8 @@
+7
+Putin  Modi  0
+Putin   Trump  0
+Putin   Pope  0
+Trump   Modi  1
+Yogi   Modi  1
+Prabhu  Modi  0
+Yogi  Prabhu  0

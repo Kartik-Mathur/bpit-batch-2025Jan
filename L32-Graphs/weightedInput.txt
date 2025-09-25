@@ -1,0 +1,8 @@
+7
+Jaipur Amritsar 4
+Jaipur Delhi 2
+Jaipur Mumbai 8
+Amritsar Agra 1
+Delhi Agra 1
+Bhopal Agra 2
+Bhopal Mumbai 3
